@@ -4,6 +4,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from './src/Screens/Home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {CategoriesScreen} from './src/Screens/Categories';
+import {ProductsScreen} from './src/Screens/Products';
+import {ProductDetailsScreen} from './src/Screens/ProductDetails';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,6 +28,11 @@ function App(): React.JSX.Element {
           name={'Tabs'}
           options={{headerShown: false}}
           component={BottomNavigator}
+        />
+        <Stack.Screen name={'Products'} component={ProductsScreen} />
+        <Stack.Screen
+          name={'ProductDetails'}
+          component={ProductDetailsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

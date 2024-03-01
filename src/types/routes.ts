@@ -1,10 +1,12 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
+import {Category, Product} from '.';
 
 export type RootStackParamList = {
   Home: undefined;
 
-  Place: {placeId: number};
+  Products: {category: Category};
+  ProductDetails: {product: Product};
 };
 
 export type HomeScreenProps = NativeStackScreenProps<
@@ -12,9 +14,14 @@ export type HomeScreenProps = NativeStackScreenProps<
   'Home'
 >;
 
-export type PlaceScreenProps = NativeStackScreenProps<
+export type ProductDetailsScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  'Place'
+  'ProductDetails'
+>;
+
+export type ProductsTabProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Products'
 >;
 
 export type BottomTabParamList = {
