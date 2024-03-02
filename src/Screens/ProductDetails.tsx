@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
 import {SwipeableGallery} from '../components/SwipeableGallery';
+import {airpods} from '../img/airpods';
 
 export const ProductDetailsScreen = () => {
-  return <SwipeableGallery />;
+  return <SwipeableGallery images={airpods} />;
 };
 
 const styles = StyleSheet.create({
