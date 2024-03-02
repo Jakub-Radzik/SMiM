@@ -1,13 +1,12 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {
-  Image,
+  Dimensions,
   ImageSourcePropType,
-  PanResponder,
   StyleSheet,
-  Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
-import {airpods} from '../img/airpods';
+import FastImage from 'react-native-fast-image';
 
 interface Props {
   images: ImageSourcePropType[];
@@ -16,45 +15,60 @@ interface Props {
   endNumber?: number;
 }
 
-const SWIPE_THRESHOLD = 100; // Minimum swipe distance for number change
+const INTERVAL = 100; // Minimum swipe distance for number change
+const IMAGE_HEIGHT = 300;
+const IMAGE_WIDTH = Dimensions.get('window').width;
 
 export const SwipeableGallery = ({images}: Props) => {
-  const [number, setNumber] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+
+  const clean = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+  };
 
   useEffect(() => {
-    console.log('Number:', number);
-  }, [number]);
+    return () => {
+      clean();
+    };
+  }, [intervalId]);
 
-  const imagesCount = images.length;
+  const startInterval = (direction: 'forward' | 'backward') => {
+    clean();
 
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (_, gestureState) => {
-        // Check if the swipe distance is significant enough
-        if (Math.abs(gestureState.dx) > SWIPE_THRESHOLD) {
-          // Swipe right, increment number
-          if (gestureState.dx > 0) {
-            // setNumber(prevNumber => (prevNumber >= 6 ? 0 : prevNumber + 1));
-            setNumber(prevNumber =>
-              prevNumber >= imagesCount - 1 ? 0 : prevNumber + 1,
-            );
-          }
-          // Swipe left, decrement number
-          else {
-            setNumber(prevNumber =>
-              prevNumber <= 0 ? imagesCount - 1 : prevNumber - 1,
-            );
-          }
+    const newIntervalId = setInterval(() => {
+      setCurrentIndex(prevIndex => {
+        if (direction === 'forward') {
+          return (prevIndex + 1) % images.length;
+        } else {
+          return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
         }
-      },
-      onPanResponderRelease: () => {},
-    }),
-  ).current;
+      });
+    }, INTERVAL);
+
+    setIntervalId(newIntervalId);
+  };
+
+  const stopInterval = () => {
+    clean();
+    setIntervalId(null);
+  };
 
   return (
-    <View style={styles.container} {...panResponder.panHandlers}>
-      <Image source={images[number]} style={styles.image} />
+    <View style={styles.container}>
+      <FastImage source={images[currentIndex]} style={styles.image} />
+      <View style={styles.buttons}>
+        <TouchableOpacity
+          style={styles.button}
+          onLongPress={() => startInterval('forward')}
+          onPressOut={stopInterval}></TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onLongPress={() => startInterval('backward')}
+          onPressOut={stopInterval}></TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -63,15 +77,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    position: 'relative',
   },
   image: {
-    width: 400,
-    height: 300,
+    width: IMAGE_WIDTH,
+    height: IMAGE_HEIGHT,
     resizeMode: 'contain',
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  buttons: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    flexDirection: 'row',
+  },
+  button: {
+    width: '50%',
+    height: IMAGE_HEIGHT,
   },
 });
