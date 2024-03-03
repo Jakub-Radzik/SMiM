@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  Touchable,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Product} from '../types';
 import FastImage from 'react-native-fast-image';
 

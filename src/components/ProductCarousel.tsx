@@ -1,5 +1,4 @@
 import {View, ScrollView, StyleSheet} from 'react-native';
-import {PRODUCTS} from '../mockData';
 import {Category, Product} from '../types';
 import {ChevronButton} from './ChevronButton';
 import {ProductCard} from './ProductCard';
