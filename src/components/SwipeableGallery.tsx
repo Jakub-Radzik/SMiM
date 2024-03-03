@@ -51,6 +51,16 @@ export const SwipeableGallery = ({images}: Props) => {
     setIntervalId(newIntervalId);
   };
 
+  const next = () => {
+    setCurrentIndex(prevIndex =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
+    );
+  };
+
+  const prev = () => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+  };
+
   const stopInterval = () => {
     clean();
     setIntervalId(null);
@@ -62,10 +72,12 @@ export const SwipeableGallery = ({images}: Props) => {
       <View style={styles.buttons}>
         <TouchableOpacity
           style={styles.button}
+          onPress={prev}
           onLongPress={() => startInterval('forward')}
           onPressOut={stopInterval}></TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
+          onPress={next}
           onLongPress={() => startInterval('backward')}
           onPressOut={stopInterval}></TouchableOpacity>
       </View>

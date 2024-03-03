@@ -16,8 +16,9 @@ export const ProductsScreen = ({navigation, route}: ProductsTabProps) => {
     <View>
       <FlatList
         numColumns={2}
+        columnWrapperStyle={styles.columnWrapper}
         style={styles.list}
-        contentContainerStyle={styles.container}
+        ItemSeparatorComponent={() => <View style={{height: 10}} />}
         renderItem={({item}) => (
           <ProductItem
             item={item}
@@ -33,11 +34,11 @@ export const ProductsScreen = ({navigation, route}: ProductsTabProps) => {
 
 const styles = StyleSheet.create({
   list: {
-    padding: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    margin: 10,
   },
-  container: {
-    width: '50%',
+  columnWrapper: {
+    gap: 10,
   },
 });

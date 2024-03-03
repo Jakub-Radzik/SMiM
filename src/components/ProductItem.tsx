@@ -22,5 +22,7 @@ const styles = StyleSheet.create({
     padding: 5,
     alignItems: 'center',
     gap: 10,
+    backgroundColor: 'white',
+    borderRadius: 10,
   },
 });

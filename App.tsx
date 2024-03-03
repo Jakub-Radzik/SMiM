@@ -13,7 +13,6 @@ const Tab = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
 
-// TODO Components from icon
 function BottomNavigator() {
   return (
     <Tab.Navigator>
