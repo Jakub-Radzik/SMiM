@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Product} from '../types';
 
 type Props = {item: Product; onPress: () => void};
@@ -7,7 +7,7 @@ export const ProductItem = ({item, onPress}: Props) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.item}>
       <Image
-        source={{uri: item.images?.thumbnail}}
+        source={item.images?.thumbnail}
         style={{width: '100%', height: 150}}
       />
       <Text>{item.title}</Text>

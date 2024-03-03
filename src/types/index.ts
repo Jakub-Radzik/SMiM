@@ -1,3 +1,5 @@
+import {ImageSourcePropType} from 'react-native';
+
 export enum Category {
   CAT1 = 'Elektronika',
   CAT2 = 'Kosmetyki',
@@ -9,6 +11,7 @@ export type Product = {
   title: string;
   price: number;
   images: {
-    thumbnail: string;
+    thumbnail: ImageSourcePropType;
+    gallery: ImageSourcePropType[];
   };
 };

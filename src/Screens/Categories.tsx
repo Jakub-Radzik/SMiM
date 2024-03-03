@@ -2,10 +2,11 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {CategoriesTabProps} from '../types/routes';
 import {ListItem} from '../components/ListItem';
 import {CATEGORIES} from '../mockData';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const CategoriesScreen = ({navigation, route}: CategoriesTabProps) => {
   return (
-    <View>
+    <SafeAreaView>
       <FlatList
         style={styles.list}
         renderItem={({item}) => (
@@ -19,7 +20,7 @@ export const CategoriesScreen = ({navigation, route}: CategoriesTabProps) => {
         )}
         data={CATEGORIES}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

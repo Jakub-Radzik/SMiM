@@ -1,4 +1,5 @@
-import {Category} from '../types';
+import {airpods} from '../img/airpods';
+import {Category, Product} from '../types';
 
 export const CATEGORIES = [
   {title: Category.CAT1, icon: '📱'},
@@ -6,7 +7,7 @@ export const CATEGORIES = [
   {title: Category.CAT3, icon: '🛍️'},
 ];
 
-export const PRODUCTS = {
+export const PRODUCTS: Record<Category, Product[]> = {
   [Category.CAT1]: [
     {
       id: '1',
@@ -26,7 +27,8 @@ export const PRODUCTS = {
   ].map(item => ({
     ...item,
     images: {
-      thumbnail: 'https://via.placeholder.com/150',
+      thumbnail: airpods[0],
+      gallery: airpods,
     },
   })),
   [Category.CAT2]: [],
