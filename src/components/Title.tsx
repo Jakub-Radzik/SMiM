@@ -1,12 +1,13 @@
-import {StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
+import {StyleSheet, TextStyle} from 'react-native';
+import {Text} from './Text';
 
 interface Props {
   title: string;
-  style?: StyleProp<TextStyle>;
+  style?: TextStyle;
 }
 
 export const Title = ({title, style}: Props) => {
-  return <Text style={[style, styles.title]}>{title}</Text>;
+  return <Text style={{...style, ...styles.title}}>{title}</Text>;
 };
 
 const styles = StyleSheet.create({

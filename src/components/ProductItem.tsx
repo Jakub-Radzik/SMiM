@@ -1,5 +1,6 @@
-import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {Product} from '../types';
+import {Text} from './Text';
 
 type Props = {item: Product; onPress: () => void};
 

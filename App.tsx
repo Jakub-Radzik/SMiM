@@ -6,8 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {CategoriesScreen} from './src/Screens/Categories';
 import {ProductsScreen} from './src/Screens/Products';
 import {ProductDetailsScreen} from './src/Screens/ProductDetails';
-import {Text} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Text} from './src/components/Text';
 
 const Tab = createBottomTabNavigator();
 

@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import {CategoriesTabProps} from '../types/routes';
 import {ListItem} from '../components/ListItem';
 import {CATEGORIES} from '../mockData';

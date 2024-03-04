@@ -1,6 +1,7 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Product} from '../types';
 import FastImage from 'react-native-fast-image';
+import {Text} from './Text';
 
 interface Props {
   item: Product;

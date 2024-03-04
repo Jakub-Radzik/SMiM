@@ -1,10 +1,11 @@
-import {View, Text, StyleSheet, TouchableOpacity, Animated} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Animated} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import {Product} from '../types';
 import {Title} from './Title';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useEffect, useRef} from 'react';
+import {Text} from './Text';
 
 interface Props {
   product: Product;
