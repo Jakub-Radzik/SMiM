@@ -1,8 +1,10 @@
-import {Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {Dimensions, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {Product} from '../types';
 import {Text} from './Text';
 
 type Props = {item: Product; onPress: () => void};
+
+const width = Dimensions.get('window').width;
 
 export const ProductItem = ({item, onPress}: Props) => {
   return (
@@ -16,7 +18,7 @@ export const ProductItem = ({item, onPress}: Props) => {
 const styles = StyleSheet.create({
   image: {width: '100%', height: 150, resizeMode: 'contain'},
   item: {
-    width: '100%',
+    width: width / 2 - 15,
     minHeight: 200,
     padding: 5,
     alignItems: 'center',

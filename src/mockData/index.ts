@@ -1,5 +1,8 @@
 import {airpods} from '../img/airpods';
 import {appleWatch} from '../img/applewatch';
+import {doge} from '../img/doge';
+import {eth} from '../img/eth';
+import {krem, kremMain} from '../img/krem';
 import {pendrive, pendriveMain} from '../img/pendrive';
 import {Category, Product} from '../types';
 
@@ -39,6 +42,35 @@ export const PRODUCTS: Record<Category, Product[]> = {
       },
     },
   ],
-  [Category.CAT2]: [],
-  [Category.CAT3]: [],
+  [Category.CAT2]: [
+    {
+      id: '21',
+      title: 'Krem do golenia',
+      price: 100,
+      images: {
+        thumbnail: kremMain,
+        gallery: krem,
+      },
+    },
+  ],
+  [Category.CAT3]: [
+    {
+      id: '31',
+      title: 'Dogecoin',
+      price: 100,
+      images: {
+        thumbnail: doge[1],
+        gallery: doge,
+      },
+    },
+    {
+      id: '32',
+      title: 'Ethereum',
+      price: 100,
+      images: {
+        thumbnail: eth[1],
+        gallery: eth,
+      },
+    },
+  ],
 };

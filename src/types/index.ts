@@ -3,7 +3,7 @@ import {ImageSourcePropType} from 'react-native';
 export enum Category {
   CAT1 = 'Elektronika',
   CAT2 = 'Kosmetyki',
-  CAT3 = 'X',
+  CAT3 = 'Numizmatyka',
 }
 
 export type Product = {
