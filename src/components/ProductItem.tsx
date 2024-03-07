@@ -7,16 +7,14 @@ type Props = {item: Product; onPress: () => void};
 export const ProductItem = ({item, onPress}: Props) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.item}>
-      <Image
-        source={item.images?.thumbnail}
-        style={{width: '100%', height: 150}}
-      />
+      <Image source={item.images?.thumbnail} style={styles.image} />
       <Text>{item.title}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
+  image: {width: '100%', height: 150, resizeMode: 'contain'},
   item: {
     width: '100%',
     minHeight: 200,

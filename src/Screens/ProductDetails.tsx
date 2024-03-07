@@ -1,9 +1,13 @@
 import {StyleSheet} from 'react-native';
 import {SwipeableGallery} from '../components/SwipeableGallery';
-import {airpods} from '../img/airpods';
+import {ProductDetailsScreenProps} from '../types/routes';
 
-export const ProductDetailsScreen = () => {
-  return <SwipeableGallery images={airpods} />;
+export const ProductDetailsScreen = ({
+  route,
+  navigation,
+}: ProductDetailsScreenProps) => {
+  const {product} = route.params;
+  return <SwipeableGallery images={product.images.gallery} />;
 };
 
 const styles = StyleSheet.create({
