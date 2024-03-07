@@ -1,4 +1,6 @@
 import {airpods} from '../img/airpods';
+import {appleWatch} from '../img/applewatch';
+import {pendrive, pendriveMain} from '../img/pendrive';
 import {Category, Product} from '../types';
 
 export const CATEGORIES = [
@@ -10,27 +12,33 @@ export const CATEGORIES = [
 export const PRODUCTS: Record<Category, Product[]> = {
   [Category.CAT1]: [
     {
-      id: '1',
-      title: 'AirPods Pro',
-      price: 100,
-    },
-    {
       id: '2',
       title: 'Apple Watch',
       price: 100,
+      images: {
+        thumbnail: appleWatch[0],
+        gallery: appleWatch,
+      },
+    },
+    {
+      id: '1',
+      title: 'AirPods Pro',
+      price: 100,
+      images: {
+        thumbnail: airpods[3],
+        gallery: airpods,
+      },
     },
     {
       id: '3',
-      title: 'iPhone 13 Pro',
+      title: 'Pendrive',
       price: 100,
+      images: {
+        thumbnail: pendriveMain,
+        gallery: pendrive,
+      },
     },
-  ].map(item => ({
-    ...item,
-    images: {
-      thumbnail: airpods[0],
-      gallery: airpods,
-    },
-  })),
+  ],
   [Category.CAT2]: [],
   [Category.CAT3]: [],
 };
