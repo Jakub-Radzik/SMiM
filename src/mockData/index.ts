@@ -4,6 +4,9 @@ import {doge} from '../img/doge';
 import {eth} from '../img/eth';
 import {krem, kremMain} from '../img/krem';
 import {pendrive, pendriveMain} from '../img/pendrive';
+import {pomatka, pomatkaMain} from '../img/pomatka';
+import {swietlik} from '../img/swietlik';
+import {xrp} from '../img/xrp';
 import {Category, Product} from '../types';
 
 export const CATEGORIES = [
@@ -52,6 +55,24 @@ export const PRODUCTS: Record<Category, Product[]> = {
         gallery: krem,
       },
     },
+    {
+      id: '22',
+      title: 'Pomatka',
+      price: 100,
+      images: {
+        thumbnail: pomatkaMain,
+        gallery: pomatka,
+      },
+    },
+    {
+      id: '23',
+      title: 'Świetlik',
+      price: 100,
+      images: {
+        thumbnail: swietlik[0],
+        gallery: swietlik,
+      },
+    },
   ],
   [Category.CAT3]: [
     {
@@ -70,6 +91,15 @@ export const PRODUCTS: Record<Category, Product[]> = {
       images: {
         thumbnail: eth[1],
         gallery: eth,
+      },
+    },
+    {
+      id: '33',
+      title: 'Ripple',
+      price: 100,
+      images: {
+        thumbnail: xrp[1],
+        gallery: xrp,
       },
     },
   ],
