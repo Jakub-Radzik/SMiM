@@ -4,6 +4,9 @@ import {ProductDetailsScreenProps} from '../types/routes';
 import {Text} from '../components/Text';
 import {Title} from '../components/Title';
 import LinearGradient from 'react-native-linear-gradient';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faStar as faStarSolid} from '@fortawesome/free-solid-svg-icons';
+import {faStar} from '@fortawesome/free-regular-svg-icons';
 
 export const ProductDetailsScreen = ({
   route,
@@ -16,6 +19,7 @@ export const ProductDetailsScreen = ({
     price,
     description,
     spec,
+    rate,
   } = product;
   return (
     <ScrollView>
@@ -24,6 +28,21 @@ export const ProductDetailsScreen = ({
       </LinearGradient>
       <View style={styles.top}>
         <Title title={title} />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            gap: 10,
+          }}>
+          {Array.from({length: 5}, (_, i) => (
+            <FontAwesomeIcon
+              icon={i < rate ? faStarSolid : faStar}
+              color={i < rate ? '#f8d64e' : '#a9a9a9'}
+              size={20}
+            />
+          ))}
+        </View>
         <Text style={styles.price}>{price} $</Text>
       </View>
       <View style={styles.specWrapper}>
@@ -61,7 +80,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   top: {
-    height: 200,
     backgroundColor: '#fff',
     padding: 20,
     gap: 10,
@@ -69,6 +87,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginTop: 20,
   },
   specWrapper: {
     paddingHorizontal: 20,
@@ -94,5 +113,7 @@ const styles = StyleSheet.create({
   },
   specValue: {
     textAlign: 'left',
+    flexWrap: 'wrap',
+    width: 200,
   },
 });
