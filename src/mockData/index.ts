@@ -21,6 +21,13 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '2',
       title: 'Apple Watch',
       price: 100,
+      spec: {
+        Kolor: 'Czarny',
+        Pamięć: '32GB',
+        Wodoodporność: 'IP68',
+        Bateria: '24h',
+      },
+
       images: {
         thumbnail: appleWatch[0],
         gallery: appleWatch,
@@ -30,6 +37,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '1',
       title: 'AirPods Pro',
       price: 100,
+      spec: {},
       images: {
         thumbnail: airpods[3],
         gallery: airpods,
@@ -39,6 +47,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '3',
       title: 'Pendrive',
       price: 100,
+      spec: {},
       images: {
         thumbnail: pendriveMain,
         gallery: pendrive,
@@ -50,6 +59,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '21',
       title: 'Krem do golenia',
       price: 100,
+      spec: {},
       images: {
         thumbnail: kremMain,
         gallery: krem,
@@ -59,6 +69,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '22',
       title: 'Pomatka',
       price: 100,
+      spec: {},
       images: {
         thumbnail: pomatkaMain,
         gallery: pomatka,
@@ -68,6 +79,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '23',
       title: 'Świetlik',
       price: 100,
+      spec: {},
       images: {
         thumbnail: swietlik[0],
         gallery: swietlik,
@@ -79,6 +91,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '31',
       title: 'Dogecoin',
       price: 100,
+      spec: {},
       images: {
         thumbnail: doge[1],
         gallery: doge,
@@ -88,6 +101,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '32',
       title: 'Ethereum',
       price: 100,
+      spec: {},
       images: {
         thumbnail: eth[1],
         gallery: eth,
@@ -97,6 +111,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '33',
       title: 'Ripple',
       price: 100,
+      spec: {},
       images: {
         thumbnail: xrp[1],
         gallery: xrp,

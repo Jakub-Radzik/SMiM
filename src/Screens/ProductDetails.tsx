@@ -14,6 +14,7 @@ export const ProductDetailsScreen = ({
     images: {gallery},
     title,
     price,
+    spec,
   } = product;
   return (
     <ScrollView>
@@ -26,11 +27,13 @@ export const ProductDetailsScreen = ({
       </View>
       <View style={styles.specWrapper}>
         <View style={styles.spec}>
-          <Text style={styles.price}>{price} $</Text>
-          <Text style={styles.price}>{price} $</Text>
-          <Text style={styles.price}>{price} $</Text>
-          <Text style={styles.price}>{price} $</Text>
-          <Text style={styles.price}>{price} $</Text>
+          <Title title={'Specyfikacja'} style={{marginBottom: 10}} />
+          {Object.entries(spec).map(([key, value]) => (
+            <View style={styles.row}>
+              <Text style={styles.specTitle}>{key}:</Text>
+              <Text style={styles.specValue}>{value}</Text>
+            </View>
+          ))}
         </View>
       </View>
       <View style={styles.specWrapper}>
@@ -78,5 +81,19 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: '#a9a9a9',
+    gap: 10,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    textAlign: 'left',
+  },
+  specTitle: {
+    textAlign: 'left',
+    fontWeight: 'bold',
+    width: 150,
+  },
+  specValue: {
+    textAlign: 'left',
   },
 });

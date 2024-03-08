@@ -10,6 +10,7 @@ export type Product = {
   id: string;
   title: string;
   price: number;
+  spec: Record<string, string>;
   images: {
     thumbnail: ImageSourcePropType;
     gallery: ImageSourcePropType[];
