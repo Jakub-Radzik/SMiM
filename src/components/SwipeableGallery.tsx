@@ -87,7 +87,6 @@ export const SwipeableGallery = ({images}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     position: 'relative',
   },
