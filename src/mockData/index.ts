@@ -21,6 +21,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '2',
       title: 'Apple Watch',
       price: 100,
+      description: 'OpisOpisOpisOpisOpis',
       spec: {
         Kolor: 'Czarny',
         Pamięć: '32GB',
@@ -37,6 +38,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '1',
       title: 'AirPods Pro',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: airpods[3],
@@ -47,6 +49,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '3',
       title: 'Pendrive',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: pendriveMain,
@@ -59,6 +62,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '21',
       title: 'Krem do golenia',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: kremMain,
@@ -69,6 +73,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '22',
       title: 'Pomatka',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: pomatkaMain,
@@ -79,6 +84,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '23',
       title: 'Świetlik',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: swietlik[0],
@@ -91,6 +97,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '31',
       title: 'Dogecoin',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: doge[1],
@@ -101,6 +108,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '32',
       title: 'Ethereum',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: eth[1],
@@ -111,6 +119,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: '33',
       title: 'Ripple',
       price: 100,
+      description: 'Opis',
       spec: {},
       images: {
         thumbnail: xrp[1],

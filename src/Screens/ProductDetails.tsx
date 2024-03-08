@@ -14,6 +14,7 @@ export const ProductDetailsScreen = ({
     images: {gallery},
     title,
     price,
+    description,
     spec,
   } = product;
   return (
@@ -37,10 +38,8 @@ export const ProductDetailsScreen = ({
         </View>
       </View>
       <View style={styles.specWrapper}>
-        <Title title={'Opis'} />
-        <Title title={'Opis'} />
-        <Title title={'Opis'} />
-        <Title title={'Opis'} />
+        <Title title={'Opis'} style={{marginBottom: 10}} />
+        <Text>{description}</Text>
       </View>
     </ScrollView>
   );

@@ -11,6 +11,7 @@ export type Product = {
   title: string;
   price: number;
   spec: Record<string, string>;
+  description: string;
   images: {
     thumbnail: ImageSourcePropType;
     gallery: ImageSourcePropType[];
