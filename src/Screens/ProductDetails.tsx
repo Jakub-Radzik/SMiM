@@ -7,6 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faStar as faStarSolid} from '@fortawesome/free-solid-svg-icons';
 import {faStar} from '@fortawesome/free-regular-svg-icons';
+import Video from 'react-native-video';
 
 export const ProductDetailsScreen = ({
   route,
@@ -60,6 +61,18 @@ export const ProductDetailsScreen = ({
         <Title title={'Opis'} style={{marginBottom: 10}} />
         <Text>{description}</Text>
       </View>
+      {product.video && (
+        <View style={styles.specWrapper}>
+          <Title title={'Recenzja produktu'} style={{marginBottom: 10}} />
+          <Video
+            source={product.video?.source}
+            repeat
+            paused
+            controls
+            style={{height: 200, marginBottom: 20}}
+          />
+        </View>
+      )}
     </ScrollView>
   );
 };

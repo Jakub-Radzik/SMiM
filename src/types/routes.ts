@@ -7,6 +7,8 @@ export type RootStackParamList = {
 
   Products: {category: Category};
   ProductDetails: {product: Product};
+  Videos: undefined;
+  Video: {video: string};
 };
 
 export type HomeScreenProps = NativeStackScreenProps<
@@ -17,6 +19,16 @@ export type HomeScreenProps = NativeStackScreenProps<
 export type ProductDetailsScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'ProductDetails'
+>;
+
+export type VideosScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Videos'
+>;
+
+export type VideoScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Videos'
 >;
 
 export type ProductsTabProps = NativeStackScreenProps<

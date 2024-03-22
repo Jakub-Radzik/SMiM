@@ -7,6 +7,7 @@ import {CategoriesScreen} from './src/Screens/Categories';
 import {ProductsScreen} from './src/Screens/Products';
 import {ProductDetailsScreen} from './src/Screens/ProductDetails';
 import {Text} from './src/components/Text';
+import {VideosScreen} from './src/Screens/Videos';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,6 +52,7 @@ function App(): React.JSX.Element {
           name={'ProductDetails'}
           component={ProductDetailsScreen}
         />
+        <Stack.Screen name={'Videos'} component={VideosScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -6,6 +6,11 @@ export enum Category {
   CAT3 = 'Numizmatyka',
 }
 
+export type VideoType = {
+  title: string;
+  source: string;
+};
+
 export type Product = {
   id: string;
   title: string;
@@ -17,4 +22,5 @@ export type Product = {
     thumbnail: ImageSourcePropType;
     gallery: ImageSourcePropType[];
   };
+  video?: VideoType;
 };

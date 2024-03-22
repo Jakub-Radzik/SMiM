@@ -1,9 +1,10 @@
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import {HomeTabProps} from '../types/routes';
 import {PRODUCTS} from '../mockData';
 import {Category, Product} from '../types';
 import {ProductCarousel} from '../components/ProductCarousel';
 import {MainProduct} from '../components/MainProduct';
+import {TeaserVideo} from '../components/TeaserVideo';
 
 export const HomeScreen = ({navigation, route}: HomeTabProps) => {
   const onProductPress = (product: Product) => {
@@ -14,10 +15,14 @@ export const HomeScreen = ({navigation, route}: HomeTabProps) => {
     navigation.navigate('Products', {category: Category.CAT1});
   };
 
+  const onVideosChevronPress = () => {
+    navigation.navigate('Videos');
+  };
+
   const product = PRODUCTS.Elektronika[0];
 
   return (
-    <View style={styles.screen}>
+    <ScrollView style={styles.screen}>
       <MainProduct product={product} onPress={() => onProductPress(product)} />
       <ProductCarousel
         title={'Polecamy'}
@@ -26,7 +31,8 @@ export const HomeScreen = ({navigation, route}: HomeTabProps) => {
         onProductPress={onProductPress}
         onChevronPress={onChevronPress}
       />
-    </View>
+      <TeaserVideo onChevronPress={onVideosChevronPress} />
+    </ScrollView>
   );
 };
 
