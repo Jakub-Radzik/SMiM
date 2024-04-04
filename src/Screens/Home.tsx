@@ -5,6 +5,7 @@ import {Category, Product} from '../types';
 import {ProductCarousel} from '../components/ProductCarousel';
 import {MainProduct} from '../components/MainProduct';
 import {TeaserVideo} from '../components/TeaserVideo';
+import {airpodsVideo} from '../video';
 
 export const HomeScreen = ({navigation, route}: HomeTabProps) => {
   const onProductPress = (product: Product) => {
@@ -31,7 +32,7 @@ export const HomeScreen = ({navigation, route}: HomeTabProps) => {
         onProductPress={onProductPress}
         onChevronPress={onChevronPress}
       />
-      <TeaserVideo onChevronPress={onVideosChevronPress} />
+      <TeaserVideo onChevronPress={onVideosChevronPress} video={airpodsVideo} />
     </ScrollView>
   );
 };

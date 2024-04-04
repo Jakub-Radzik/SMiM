@@ -9,6 +9,7 @@ export enum Category {
 export type VideoType = {
   title: string;
   source: string;
+  thumbnail?: ImageSourcePropType;
 };
 
 export type Product = {

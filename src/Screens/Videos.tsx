@@ -1,9 +1,14 @@
-import {FlatList, StyleSheet, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {VideosScreenProps} from '../types/routes';
-import Video from 'react-native-video';
 import {Text} from '../components/Text';
-import video from '../video/sample_video.hevc.mp4';
 import {VIDEOS} from '../video';
+import VideoComponent from '../components/Video';
 
 export const VideosScreen = ({navigation, route}: VideosScreenProps) => {
   return (
@@ -12,10 +17,21 @@ export const VideosScreen = ({navigation, route}: VideosScreenProps) => {
         data={VIDEOS}
         scrollEnabled
         renderItem={({item}) => (
-          <View style={styles.row}>
-            <Video source={item.source} repeat paused style={styles.video} />
-            <Text style={styles.name}>{item.title}</Text>
-          </View>
+          <TouchableOpacity>
+            <View style={styles.row}>
+              {item?.thumbnail ? (
+                <Image source={item.thumbnail} style={styles.image} />
+              ) : (
+                <VideoComponent
+                  source={item.source}
+                  repeat
+                  paused
+                  style={styles.video}
+                />
+              )}
+              <Text style={styles.name}>{item.title}</Text>
+            </View>
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -37,4 +53,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   video: {height: 100, width: 200},
+  image: {height: 100, width: 200, resizeMode: 'contain'},
 });

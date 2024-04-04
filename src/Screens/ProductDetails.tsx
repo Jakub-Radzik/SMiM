@@ -7,7 +7,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faStar as faStarSolid} from '@fortawesome/free-solid-svg-icons';
 import {faStar} from '@fortawesome/free-regular-svg-icons';
-import Video from 'react-native-video';
+import VideoComponent from '../components/Video';
+import {TeaserVideo, ThumbnailVideo} from '../components/TeaserVideo';
 
 export const ProductDetailsScreen = ({
   route,
@@ -50,7 +51,7 @@ export const ProductDetailsScreen = ({
         <View style={styles.spec}>
           <Title title={'Specyfikacja'} style={{marginBottom: 10}} />
           {Object.entries(spec).map(([key, value]) => (
-            <View style={styles.row}>
+            <View style={styles.row} key={key}>
               <Text style={styles.specTitle}>{key}:</Text>
               <Text style={styles.specValue}>{value}</Text>
             </View>
@@ -62,15 +63,16 @@ export const ProductDetailsScreen = ({
         <Text>{description}</Text>
       </View>
       {product.video && (
-        <View style={styles.specWrapper}>
-          <Title title={'Recenzja produktu'} style={{marginBottom: 10}} />
-          <Video
-            source={product.video?.source}
-            repeat
-            paused
-            controls
-            style={{height: 200, marginBottom: 20}}
+        <View style={styles.videoWrapper}>
+          <Title
+            title={'Recenzja produktu'}
+            style={{marginBottom: 10, marginLeft: 20}}
           />
+          {product.video && (
+            <View style={styles.specWrapper}>
+              <ThumbnailVideo video={product.video} />
+            </View>
+          )}
         </View>
       )}
     </ScrollView>
@@ -104,6 +106,10 @@ const styles = StyleSheet.create({
   },
   specWrapper: {
     paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: '#fff',
+  },
+  videoWrapper: {
     paddingVertical: 10,
     backgroundColor: '#fff',
   },

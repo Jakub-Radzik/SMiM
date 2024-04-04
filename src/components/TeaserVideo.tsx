@@ -1,20 +1,45 @@
-import {StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {ChevronButton} from './ChevronButton';
-import Video from 'react-native-video';
-import video from '../video/sample_video.hevc.mp4';
 import {Title} from './Title';
+import {VideoType} from '../types';
+import {useState} from 'react';
+import VideoComponent from './Video';
 
 type Props = {
   onChevronPress: () => void;
+  video: VideoType;
 };
 
-export const TeaserVideo = ({onChevronPress}: Props) => {
+export const ThumbnailVideo = ({video}: Omit<Props, 'onChevronPress'>) => {
+  const [playing, setPlaying] = useState(false);
+  return playing ? (
+    <VideoComponent
+      repeat
+      controls
+      source={video.source}
+      paused={!playing}
+      onEnd={() => setPlaying(false)}
+      style={styles.video}
+    />
+  ) : (
+    <TouchableOpacity onPress={() => setPlaying(true)}>
+      <Image source={video.thumbnail} style={styles.video} />
+    </TouchableOpacity>
+  );
+};
+
+export const TeaserVideo = ({video, onChevronPress}: Props) => {
+  const [playing, setPlaying] = useState(false);
   return (
     <View style={styles.view}>
       <View style={styles.titleWrapper}>
         <Title title={'Zobacz nasze recenzje'} />
       </View>
-      <Video source={video} repeat paused={false} style={styles.video} />
+      {video.thumbnail ? (
+        <ThumbnailVideo video={video} />
+      ) : (
+        <Video source={video} repeat paused={false} style={styles.video} />
+      )}
       <ChevronButton title={'Zobacz wszystkie'} onPress={onChevronPress} />
     </View>
   );

@@ -11,7 +11,7 @@ import {swietlik} from '../img/swietlik';
 import {usdt} from '../img/usdt';
 import {xrp} from '../img/xrp';
 import {Category, Product} from '../types';
-import {sampleVideo} from '../video';
+import {airpodsVideo, pendriveVideo, pomatkaVideo} from '../video';
 
 export const CATEGORIES = [
   {title: Category.CAT1, icon: '📱'},
@@ -43,7 +43,6 @@ export const PRODUCTS: Record<Category, Product[]> = {
         thumbnail: appleWatch[0],
         gallery: appleWatch,
       },
-      video: sampleVideo,
     },
     {
       id: '1',
@@ -67,6 +66,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
         thumbnail: airpods[3],
         gallery: airpods,
       },
+      video: airpodsVideo,
     },
     {
       id: '3',
@@ -88,6 +88,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
         thumbnail: pendriveMain,
         gallery: pendrive,
       },
+      video: pendriveVideo,
     },
     {
       id: '4',
@@ -146,6 +147,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
         thumbnail: pomatkaMain,
         gallery: pomatka,
       },
+      video: pomatkaVideo,
     },
     {
       id: '23',
