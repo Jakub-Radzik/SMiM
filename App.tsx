@@ -21,7 +21,7 @@ function BottomNavigator() {
         component={HomeScreen}
         options={{
           tabBarIcon: ({focused, size}) => <Text>🏠</Text>,
-          tabBarLabel: ({focused}) => <Text>Home</Text>,
+          tabBarLabel: ({focused}) => <Text>Strona główna</Text>,
           headerShown: false,
         }}
       />
@@ -30,7 +30,7 @@ function BottomNavigator() {
         component={CategoriesScreen}
         options={{
           tabBarIcon: ({focused, size}) => <Text>🛍️</Text>,
-          tabBarLabel: ({focused}) => <Text>Categories</Text>,
+          tabBarLabel: ({focused}) => <Text>Kategorie</Text>,
           headerShown: false,
         }}
       />
@@ -41,18 +41,34 @@ function BottomNavigator() {
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerBackTitle: 'Wróć',
+        }}>
         <Stack.Screen
           name={'Main'}
-          options={{headerShown: false}}
+          options={{
+            headerShown: false,
+            headerTitle: 'Strona główna',
+          }}
           component={BottomNavigator}
         />
-        <Stack.Screen name={'Products'} component={ProductsScreen} />
+        <Stack.Screen
+          name={'Products'}
+          component={ProductsScreen}
+          options={({route}) => ({title: route.params.category})}
+        />
         <Stack.Screen
           name={'ProductDetails'}
           component={ProductDetailsScreen}
         />
-        <Stack.Screen name={'Videos'} component={VideosScreen} />
+        <Stack.Screen
+          name={'Videos'}
+          component={VideosScreen}
+          options={{
+            headerTitle: 'Recenzje',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -29,7 +29,6 @@ export const ThumbnailVideo = ({video}: Omit<Props, 'onChevronPress'>) => {
 };
 
 export const TeaserVideo = ({video, onChevronPress}: Props) => {
-  const [playing, setPlaying] = useState(false);
   return (
     <View style={styles.view}>
       <View style={styles.titleWrapper}>
@@ -38,7 +37,12 @@ export const TeaserVideo = ({video, onChevronPress}: Props) => {
       {video.thumbnail ? (
         <ThumbnailVideo video={video} />
       ) : (
-        <Video source={video} repeat paused={false} style={styles.video} />
+        <VideoComponent
+          source={video}
+          repeat
+          paused={false}
+          style={styles.video}
+        />
       )}
       <ChevronButton title={'Zobacz wszystkie'} onPress={onChevronPress} />
     </View>
