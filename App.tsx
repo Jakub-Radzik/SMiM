@@ -61,6 +61,7 @@ function App(): React.JSX.Element {
         <Stack.Screen
           name={'ProductDetails'}
           component={ProductDetailsScreen}
+          options={({route}) => ({title: route.params.product.title})}
         />
         <Stack.Screen
           name={'Videos'}
