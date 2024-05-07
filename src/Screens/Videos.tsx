@@ -17,7 +17,12 @@ export const VideosScreen = ({navigation, route}: VideosScreenProps) => {
         data={VIDEOS}
         scrollEnabled
         renderItem={({item}) => (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Video', {
+                video: item.source,
+              })
+            }>
             <View style={styles.row}>
               {item?.thumbnail ? (
                 <Image source={item.thumbnail} style={styles.image} />
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
     height: 120,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: 'lightgrey',
+    borderColor: '#a9a9a9',
   },
   name: {
     paddingHorizontal: 10,

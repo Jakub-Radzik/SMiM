@@ -8,6 +8,7 @@ import {ProductsScreen} from './src/Screens/Products';
 import {ProductDetailsScreen} from './src/Screens/ProductDetails';
 import {Text} from './src/components/Text';
 import {VideosScreen} from './src/Screens/Videos';
+import {VideoScreen} from './src/Screens/Video';
 
 const Tab = createBottomTabNavigator();
 
@@ -66,6 +67,13 @@ function App(): React.JSX.Element {
         <Stack.Screen
           name={'Videos'}
           component={VideosScreen}
+          options={{
+            headerTitle: 'Recenzje',
+          }}
+        />
+        <Stack.Screen
+          name={'Video'}
+          component={VideoScreen}
           options={{
             headerTitle: 'Recenzje',
           }}
