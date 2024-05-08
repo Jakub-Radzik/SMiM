@@ -9,11 +9,14 @@ import {VideosScreenProps} from '../types/routes';
 import {Text} from '../components/Text';
 import {VIDEOS} from '../video';
 import VideoComponent from '../components/Video';
+import {Logo} from '../components/Logo';
 
 export const VideosScreen = ({navigation, route}: VideosScreenProps) => {
   return (
     <View>
+      <Logo />
       <FlatList
+        style={{height: '100%'}}
         data={VIDEOS}
         scrollEnabled
         renderItem={({item}) => (
@@ -53,9 +56,13 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: '#a9a9a9',
+    backgroundColor: 'rgba(255,255,255,0.8)',
+    marginBottom: 1,
   },
   name: {
     paddingHorizontal: 10,
+    fontWeight: 'bold',
+    fontSize: 15,
   },
   video: {height: 100, width: 200},
   image: {height: 100, width: 200, resizeMode: 'contain'},

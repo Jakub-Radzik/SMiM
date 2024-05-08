@@ -58,9 +58,16 @@ export const ProductDetailsScreen = ({
           ))}
         </View>
       </View>
-      <View style={styles.specWrapper}>
+      <View style={styles.descriptionWrapper}>
         <Title title={'Opis'} style={{marginBottom: 10}} />
-        <Text>{description}</Text>
+        <Text
+          style={{
+            letterSpacing: 0.7,
+            lineHeight: 20,
+            textAlign: 'justify',
+          }}>
+          {description}
+        </Text>
       </View>
       {product.video && (
         <View style={styles.videoWrapper}>
@@ -75,6 +82,7 @@ export const ProductDetailsScreen = ({
           )}
         </View>
       )}
+      <View style={{height: 40, backgroundColor: 'white'}} />
     </ScrollView>
   );
 };
@@ -109,6 +117,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: '#fff',
   },
+  descriptionWrapper: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: '#fff',
+  },
   videoWrapper: {
     paddingVertical: 10,
     backgroundColor: '#fff',
@@ -129,6 +142,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontWeight: 'bold',
     width: 150,
+    letterSpacing: 0.7,
   },
   specValue: {
     textAlign: 'left',

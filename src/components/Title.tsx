@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const Title = ({title, style}: Props) => {
-  return <Text style={{...style, ...styles.title}}>{title}</Text>;
+  return <Text style={{...styles.title, ...style}}>{title}</Text>;
 };
 
 const styles = StyleSheet.create({

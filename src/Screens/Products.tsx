@@ -3,6 +3,7 @@ import {PRODUCTS} from '../mockData';
 import {ProductsTabProps} from '../types/routes';
 import {ProductItem} from '../components/ProductItem';
 import {Product} from '../types';
+import {Logo} from '../components/Logo';
 
 export const ProductsScreen = ({navigation, route}: ProductsTabProps) => {
   const {category} = route.params;
@@ -28,6 +29,7 @@ export const ProductsScreen = ({navigation, route}: ProductsTabProps) => {
         )}
         data={products}
       />
+      <Logo />
     </View>
   );
 };

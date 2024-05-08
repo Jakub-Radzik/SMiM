@@ -14,6 +14,7 @@ interface Props {
 
 export const MainProduct = ({product, onPress}: Props) => {
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+  const pulseAnim = useRef(new Animated.Value(1)).current; // Initial value for opacity: 0
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -22,6 +23,23 @@ export const MainProduct = ({product, onPress}: Props) => {
       useNativeDriver: true,
     }).start();
   }, [fadeAnim]);
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulseAnim, {
+          toValue: 1.05,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(pulseAnim, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]),
+    ).start();
+  }, [pulseAnim]);
 
   const {top} = useSafeAreaInsets();
   return (
@@ -32,14 +50,21 @@ export const MainProduct = ({product, onPress}: Props) => {
         colors={['#7a769f', '#4c669f', 'transparent']}>
         <Animated.View
           style={{
-            width: '50%',
+            width: '100%',
             opacity: fadeAnim,
+            marginLeft: -90,
           }}>
           <FastImage source={product.images.thumbnail} style={styles.image} />
         </Animated.View>
         <View style={styles.productDescription}>
-          <Title title="Hit tygodnia!" style={{color: 'white'}} />
+          <Animated.Text style={{transform: [{scale: pulseAnim}]}}>
+            <Title
+              title="Hit tygodnia!"
+              style={{color: 'white', fontSize: 40}}
+            />
+          </Animated.Text>
           <Text style={styles.product}>{product.title}</Text>
+          <Text style={styles.price}>{product.price} $</Text>
         </View>
       </LinearGradient>
     </TouchableOpacity>
@@ -51,8 +76,9 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 200,
-    resizeMode: 'contain',
+    height: 300,
+    zIndex: 2,
+    marginTop: 20,
   },
   linearGradient: {
     paddingHorizontal: 15,
@@ -65,10 +91,18 @@ const styles = StyleSheet.create({
   productDescription: {
     gap: 10,
     alignItems: 'flex-end',
-    marginTop: -30,
+    marginTop: -100,
+    marginLeft: -170,
   },
   product: {
     color: 'white',
     fontWeight: '500',
+    fontSize: 20,
+  },
+  price: {
+    color: '#F4B168',
+    fontWeight: 'bold',
+    fontSize: 30,
+    marginTop: 30,
   },
 });

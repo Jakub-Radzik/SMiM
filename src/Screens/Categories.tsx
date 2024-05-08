@@ -1,8 +1,9 @@
-import {FlatList, StyleSheet} from 'react-native';
+import {FlatList, Image, StyleSheet} from 'react-native';
 import {CategoriesTabProps} from '../types/routes';
 import {ListItem} from '../components/ListItem';
 import {CATEGORIES} from '../mockData';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {Logo} from '../components/Logo';
 
 export const CategoriesScreen = ({navigation, route}: CategoriesTabProps) => {
   return (
@@ -20,6 +21,7 @@ export const CategoriesScreen = ({navigation, route}: CategoriesTabProps) => {
         )}
         data={CATEGORIES}
       />
+      <Logo withHeader={false} />
     </SafeAreaView>
   );
 };
@@ -27,5 +29,6 @@ export const CategoriesScreen = ({navigation, route}: CategoriesTabProps) => {
 const styles = StyleSheet.create({
   list: {
     padding: 10,
+    height: '100%',
   },
 });
