@@ -1,5 +1,5 @@
 import {View, StyleSheet, TouchableOpacity, Animated} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import FastImage, {Source} from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import {Product} from '../types';
 import {Title} from './Title';
@@ -54,7 +54,10 @@ export const MainProduct = ({product, onPress}: Props) => {
             opacity: fadeAnim,
             marginLeft: -90,
           }}>
-          <FastImage source={product.images.thumbnail} style={styles.image} />
+          <FastImage
+            source={product.images.thumbnail as unknown as Source}
+            style={styles.image}
+          />
         </Animated.View>
         <View style={styles.productDescription}>
           <Animated.Text style={{transform: [{scale: pulseAnim}]}}>
